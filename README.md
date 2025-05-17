@@ -80,13 +80,7 @@ A Dockerized microservice project for streaming and processing transactions usin
 
 ## Security
 
-- **Never commit your real `.env` file!**
 - All sensitive credentials are loaded from environment variables.
 
-## License
-
-MIT License
 
 ---
-
-**Feel free to modify this README to fit your needs!** 
