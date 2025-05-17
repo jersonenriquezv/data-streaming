@@ -17,8 +17,16 @@ A Dockerized microservice project for streaming and processing transactions usin
 ## Features
 
 - **Producer:** Generates and sends fake transactions to RabbitMQ.
+   - ****![image](https://github.com/user-attachments/assets/f37bd676-f292-4326-a777-7e3f4d241b3d)
+
 - **Consumer:** Listens to RabbitMQ, processes transactions, and stores them in MongoDB.
+   - ![image](https://github.com/user-attachments/assets/ed96e9f2-4df6-4126-9b3c-bfd085ceaceb)
+
 - **API:** FastAPI service to query and analyze stored transactions.
+   - ![image](https://github.com/user-attachments/assets/48e50549-1723-4404-98a2-786777f69656)
+
+
+
 
 ## Prerequisites
 
@@ -53,6 +61,8 @@ A Dockerized microservice project for streaming and processing transactions usin
    - **API Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
    - **RabbitMQ UI:** [http://localhost:15672](http://localhost:15672) (user/pass from `.env`)
    - **MongoDB:** localhost:27017 (user/pass from `.env`)
+        ![image](https://github.com/user-attachments/assets/cc62f9d5-ba39-4325-a913-e24da935eb73)
+
 
 ## Usage
 
