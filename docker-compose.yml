@@ -1,4 +1,3 @@
-
 version: '3.8'
 services:
   rabbitmq:
@@ -18,7 +17,7 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-    
+  
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -39,20 +38,18 @@ services:
   producer:
     build:
       context: ./producer
-      container_name: producer
+    container_name: producer
     depends_on:
       rabbitmq:
         condition: service_healthy
-    
     restart: unless-stopped
-    
     environment:
       - RABBITMQ_HOST=rabbitmq
       - RABBITMQ_USER=${rabbit_user}
       - RABBITMQ_PASS=${rabbit_pass}
     volumes:
       - ./producer:/app
-
+      - ./models:/app/models
   consumer:
     build:
       context: ./consumer
@@ -62,18 +59,18 @@ services:
         condition: service_healthy
       mongodb:
         condition: service_healthy
-
     restart: unless-stopped
-
     environment:
-      - RABBITMQ_HOST=rabbitmq
-      - RABBITMQ_USER=${rabbit_user}
-      - RABBITMQ_PASS=${rabbit_pass}
       - MONGO_HOST=mongodb
       - MONGO_USER=${mongo_user}
       - MONGO_PASS=${mongo_pass}
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_USER=${rabbit_user}
+      - RABBITMQ_PASS=${rabbit_pass}
     volumes:
       - ./consumer:/app
+      - ./models:/app/models
+
   api:
     build:
       context: ./api
@@ -90,6 +87,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./api:/app
+      - ./models:/app/models
 volumes:
   rabbitmq-data:
   mongo-data:
