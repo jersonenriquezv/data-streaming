@@ -37,7 +37,7 @@ A Dockerized microservice project for streaming and processing transactions usin
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/jersonenriquezv/data-streaming
    cd stream-project
    ```
 
